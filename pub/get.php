@@ -81,6 +81,10 @@ if (file_exists($configCacheFile) && is_readable($configCacheFile)) {
                 );
                 $transfer->send($fileAbsolutePath);
                 exit;
+            }else{
+                header('HTTP/1.1 301 Moved Permanently');
+                header('Location: https://www.leonpaul.com/media/'.$fileRelativePath);
+                exit();
             }
         }
     }
